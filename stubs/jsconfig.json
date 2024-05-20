@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "preserve",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["resources/js/*"],
+            "crudhub/*": ["vendor/neurony/crudhub/resources/js/*"]
+        }
+    },
+    "include": [
+        "resources/js/crudhub/**/*.js",
+        "resources/js/crudhub/**/*.jsx",
+        "resources/js/crudhub/**/*.vue"
+    ]
+}

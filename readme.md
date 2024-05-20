@@ -1,0 +1,1 @@
+# CrudHub base package

@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@vueform/multiselect/themes/default.css';
+@import 'flatpickr/dist/flatpickr.css';
+@import 'sweetalert2/src/sweetalert2.scss';
+
+.colored-toast {
+    &.swal2-icon-success {
+        @apply bg-green-500 #{!important};
+    }
+
+    &.swal2-icon-error {
+        @apply bg-red-500 #{!important};
+    }
+
+    &.swal2-icon-warning {
+        @apply bg-yellow-500 #{!important};
+    }
+
+    &.swal2-icon-info {
+        @apply bg-blue-500 #{!important};
+    }
+
+    .swal2-close, .swal2-title, .swal2-content {
+        @apply text-white #{!important};
+    }
+}

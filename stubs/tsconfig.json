@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "useDefineForClassFields": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["resources/js/*"],
+            "craftable-pro/*": ["vendor/neurony/crudhub/resources/js/*"]
+        }
+    },
+    "include": [
+        "resources/js/crudhub/**/*.ts",
+        "resources/js/crudhub/**/*.d.ts",
+        "resources/js/crudhub/**/*.tsx",
+        "resources/js/crudhub/**/*.vue"
+    ]
+}
