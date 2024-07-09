@@ -117,6 +117,11 @@ trait CrudTrait
             return true;
         })->map->name->toArray();
 
+        if(!count($availableChoices)) {
+            $this->options->filterFields = new Collection();
+            return;
+        }
+
         $selectedFields = $this->components->choice(
             question: "Which columns should be available as filters on the listing page?",
             choices: $availableChoices,
