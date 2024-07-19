@@ -3,7 +3,7 @@
         <table :class="[request.ongoing ? 'opacity-50 pointer-events-none' : '']" class="table-fixed min-w-full divide-y divide-gray-200 transition-opacity">
             <thead class="bg-gray-50">
                 <tr v-if="items.length" class="py-4">
-                    <TableTh v-if="bulkDelete" class="max-w-[20px]">
+                    <TableTh v-if="bulkDelete" class="max-w-[60px]">
                         <input v-model="selectAll" @change="toggleSelectAllItems" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                     </TableTh>
                     <template v-if="bulkDelete && selectedItems.length > 0">
@@ -15,7 +15,7 @@
                         </TableTh>
                     </template>
                     <template v-else>
-                        <TableTh v-if="draggable && !hasQueryFilled(this.$page.props?.query ?? {}, ['page'])" class="max-w-[40px]">
+                        <TableTh v-if="draggable && !hasQueryFilled(this.$page.props?.query ?? {}, ['page'])" class="max-w-[60px]">
                             <ArrowsPointingOutIcon class="h-5 w-5 text-gray-400" />
                         </TableTh>
                         <slot name="head"></slot>
@@ -39,11 +39,11 @@
             >
                 <template #item="{element, index}">
                     <tr :key="index">
-                        <TableTd v-if="bulkDelete" class="max-w-[20px]">
+                        <TableTd v-if="bulkDelete" class="max-w-[60px]">
                             <div v-if="isSelectedItem(element[itemKey])" class="bg-indigo-600 absolute inset-y-0 left-0 w-0.5"></div>
                             <input v-model="selectedItems" :value="element[this.itemKey]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                         </TableTd>
-                        <TableTd v-if="draggable && !hasQueryFilled(this.$page.props?.query ?? {}, ['page'])" class="drag-item max-w-[40px] cursor-move">
+                        <TableTd v-if="draggable && !hasQueryFilled(this.$page.props?.query ?? {}, ['page'])" class="drag-item max-w-[60px] cursor-move">
                             <ArrowsPointingOutIcon class="h-5 w-5 text-gray-400" />
                         </TableTd>
                         <slot name="row" v-bind="{element, index}"></slot>
@@ -63,11 +63,11 @@
 
             <tbody v-else class="divide-y divide-gray-200">
                 <tr v-if="items.length" v-for="(element, index) in items" :key="index">
-                    <TableTd v-if="bulkDelete" class="max-w-[20px]">
+                    <TableTd v-if="bulkDelete" class="max-w-[60px]">
                         <div v-if="isSelectedItem(element[itemKey])" class="bg-indigo-600 absolute inset-y-0 left-0 w-0.5"></div>
                         <input v-model="selectedItems" :value="element[this.itemKey]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
                     </TableTd>
-                    <TableTd v-if="draggable && !hasQueryFilled(this.$page.props?.query ?? {}, ['page'])" class="drag-item max-w-[30px] cursor-move">
+                    <TableTd v-if="draggable && !hasQueryFilled(this.$page.props?.query ?? {}, ['page'])" class="drag-item max-w-[60px] cursor-move">
                         <ArrowsPointingOutIcon class="h-5 w-5 text-gray-400" />
                     </TableTd>
                     <slot name="row" v-bind="{element, index}"></slot>
