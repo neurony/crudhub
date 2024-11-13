@@ -4,7 +4,6 @@
     </label>
 
     <label
-
         @drop.prevent="dropFiles"
         @dragover.prevent="dragging = true"
         @dragenter.prevent="dragging = true"
@@ -68,7 +67,10 @@
 
                     <div class="grid grid-cols-[auto,1fr] gap-4 p-5 divide-x">
                         <a v-if="isImage(element)" :href="element.original_url" target="_blank" class="col-span-1 group relative w-[125px]">
-                            <img :src="element.preview_url" class="w-full aspect-square rounded object-cover" />
+                            <img
+                                :src="isSvg(element) ? element.original_url : element.preview_url"
+                                class="w-full aspect-square rounded object-cover"
+                            />
 
                             <div class="absolute inset-0 flex cursor-pointer items-center justify-center rounded bg-gray-900/60 opacity-0 transition-opacity group-hover:opacity-100">
                                 <ArrowPathRoundedSquareIcon class="h-8 w-8 text-white" />
@@ -291,6 +293,9 @@ export default {
             this.media[index]['action'] = 'destroy';
 
             this.$emit('update:modelValue', this.media);
+        },
+        isSvg(file) {
+            return file.mime_type?.startsWith('image/svg+xml') ?? false;
         },
         isImage(file) {
             return file.mime_type?.startsWith('image/') ?? false;
